@@ -797,7 +797,7 @@ footer a:hover{opacity:1;color:#fff}
 // ════════════════════════════════════════════════
 // CONFIG — paste your Apps Script Web App URL here
 // ════════════════════════════════════════════════
-https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec';
 
 // ════════════════════════════════════════════════
 // STATE
@@ -903,7 +903,7 @@ function renderPosts(){
 function loadPosts(){
   var grid = document.getElementById('postsGrid');
 
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){
     grid.innerHTML = '<div class="empty-blog"><i class="fas fa-plug"></i><p>Google Sheet not connected yet.<br><small>Paste your Apps Script URL into GAS_URL in the script.</small></p></div>';
     return;
   }
@@ -964,7 +964,7 @@ function openPost(id){
   openOverlay('postModal');
 
   // Load comments async
-  if(GAS_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL !== 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){
     apiGet({ action: 'getComments', postId: id }, function(res){
       if(res.ok) renderComments(res.comments || []);
       else renderComments([]);
@@ -999,7 +999,7 @@ function submitComment(){
   var name = document.getElementById('cmtName').value.trim();
   var text = document.getElementById('cmtText').value.trim();
   if(!name || !text){ showToast('Please enter your name and comment.'); return; }
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){ showToast('GAS_URL not configured yet.'); return; }
 
   var btn = document.querySelector('.cmt-input-row .btn');
   btn.disabled = true;
@@ -1029,7 +1029,7 @@ function submitComment(){
 // REACTIONS
 // ════════════════════════════════════════════════
 function doReact(type){
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){ showToast('GAS_URL not configured yet.'); return; }
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===currentPostId){ p=posts[i]; break; } }
   if(!p) return;
@@ -1053,7 +1053,7 @@ function doReact(type){
 }
 
 function quickReact(id, type){
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){ showToast('GAS_URL not configured yet.'); return; }
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===id){ p=posts[i]; break; } }
   if(!p) return;
@@ -1106,7 +1106,7 @@ function sendMessage(){
     }
   }
 
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxeeevyrpA1JJqAz4iZ0IPVJ_tFPX4UDHlLdhlr1Etjq57rrHb81I7_4uUM8UQg9gIfEA/exec'){
     setTimeout(function(){ onDone(true); }, 1200); // demo mode
     return;
   }
